@@ -1,0 +1,38 @@
+<!-- ===TOPBAR=== -->
+<div class="topbar"><b>Virtù</b><span>un livre dont vous êtes le héros · la Renaissance</span><span class="progress" id="progress"></span><button class="lexbtn" id="secbtn" onclick="openSections()" title="Les sections du livre : lues, scellées, et celle où tu te trouves">Sections</button><button class="lexbtn" id="lexbtn" onclick="openLexique()" title="Petit lexique de la Renaissance">Lexique</button><button class="soundtgl" id="soundtgl" onclick="toggleSound()" title="Activer le son" aria-label="Son"></button></div>
+<!-- ===INTRO=== -->
+<div class="intro" id="intro">
+  <div class="icard">
+    <div class="ibanner"><svg viewBox="0 0 520 134" fill="none" stroke="#6b4f24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 110h492" stroke-width="1.3"/><path d="M14 116q120-7 246 0q126 7 246 0" stroke="#2b4c8c" stroke-width="1.3"/><g stroke="#2b4c8c" stroke-width="1"><path d="M96 116q10-9 20 0M216 118q10-9 20 0M336 116q10-9 20 0"/></g><path d="M226 110V72q34-30 68 0v38" stroke-width="1.6"/><path d="M232 72q28-24 56 0" stroke-width="1"/><path d="M260 46v-9M255 37h10M260 37v-6" stroke-width="1.3"/><path d="M244 110V84M276 110V84M252 96h16" stroke-width="1"/><path d="M176 110V56h18v54M176 56l9-10 9 10M181 68h8M181 80h8M181 92h8" stroke-width="1.3"/><path d="M330 110V52h22v58M330 60h22M330 52l4-8h14l4 8M336 70h10M336 84h10" stroke-width="1.3"/><path d="M352 44h8v-8" stroke-width="1.1"/><g stroke-width="1.2"><path d="M64 110q-2-26 5-36M73 110q2-22-3-30M68 78l7-5M68 86l-7-4"/></g><g stroke-width="1.2"><path d="M456 110q2-26-5-36M447 110q-2-22 3-30M452 78l-7-5M452 86l7-4"/></g><g stroke-width="1.1"><path d="M120 110V92l7-7 7 7v18M410 110V96l6-6 6 6v14"/></g><circle cx="260" cy="20" r="9" stroke="#9c3a2c" stroke-width="1.2"/><g stroke="#9c3a2c" stroke-width="1"><path d="M260 7v-4M260 33v-2M247 20h-4M273 20h4M251 11l-3-3M269 11l3-3"/></g></svg></div>
+    <p class="iwm">Virtù</p>
+    <p class="isub">un livre dont vous êtes le héros · un jeu sérieux d'histoire</p>
+    <div class="ireal"><span class="ireal-k">Réalité sociale · Histoire et éducation à la citoyenneté</span><span class="ireal-t">Le renouvellement de la vision de l'Homme</span></div>
+    <p class="ihook">Florence, 1508. L'imprimerie multiplie les livres, la perspective ouvre les tableaux, et des esprits audacieux osent examiner ce qu'on leur a toujours demandé de croire. Il ne manque qu'une chose à cette Renaissance : toi. Entre à l'atelier, et que chacun de tes choix forge ton destin.</p>
+    <div class="ifacts"><span class="ifact"><b data-fact="sections">35</b> sections</span><span class="ifact"><b data-fact="sources">19</b> sources à étudier</span><span class="ifact"><b data-fact="fins">12</b> destins</span><span class="ifact"><b>5</b> affrontements aux dés</span></div>
+    <div class="hcards">
+      <div class="hcard"><svg viewBox="0 0 32 32" fill="none" stroke="#7a5a1e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="10" r="4.2"/><path d="M8 26q0-7 8-7t8 7"/><path d="M23 7q3-2 3-5" stroke="#9c3a2c" stroke-width="1.3"/><path d="M9 7Q6 5 6 2" stroke="#9c3a2c" stroke-width="1.3"/></svg><h4>Façonne ton personnage</h4><p>Apprenti ou apprentie, ton nom, ton métier, et quatre qualités à répartir : elles ouvriront ou fermeront des chemins.</p></div>
+      <div class="hcard"><svg viewBox="0 0 32 32" fill="none" stroke="#7a5a1e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5 h13 l2 3 v18 l-2 2 H9 l-2 -2 V8 Z"/><path d="M11 11h10M11 15h10M11 19h7" stroke-width="1.3"/><path d="M11 24.5h5" stroke="#9c3a2c" stroke-width="1.3"/></svg><h4>Étudie les sources</h4><p>Chaque page cache un document d'époque : lis-le, réponds à sa question, puis décide en connaissance de cause.</p></div>
+      <div class="hcard"><svg viewBox="0 0 32 32" fill="none" stroke="#7a5a1e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8 q-5 -3 -10 -2 v18 q5 -1 10 2 q5 -3 10 -2 V6 q-5 -1 -10 2 Z"/><path d="M16 8v18"/><text x="8" y="19" font-size="9" font-family="serif" fill="#9c3a2c" stroke="none">§</text><text x="19.5" y="19" font-size="9" font-family="serif" fill="#9c3a2c" stroke="none">14</text></svg><h4>Feuillette les sections</h4><p>Chaque choix t'envoie à un numéro du livre : retrouve-le dans la table, comme dans un vrai livre-jeu.</p></div>
+      <div class="hcard"><svg viewBox="0 0 32 32" fill="none" stroke="#7a5a1e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="14" width="11" height="11" rx="2"/><circle cx="8.5" cy="17.5" r=".9" fill="#7a5a1e"/><circle cx="12.5" cy="21.5" r=".9" fill="#7a5a1e"/><rect x="17.5" y="16" width="9" height="9" rx="2" transform="rotate(8 22 20.5)"/><circle cx="22" cy="20.5" r=".9" fill="#7a5a1e"/><path d="M19 8q3-5 8-4" stroke="#9c3a2c" stroke-width="1.4"/><path d="M25 3l2 1-1 2" stroke="#9c3a2c" stroke-width="1.2"/></svg><h4>Affronte sans violence</h4><p>Concours, joutes oratoires, tribunal : cinq affrontements se jouent aux dés, ronde après ronde, sans jamais tirer l'épée.</p></div>
+    </div>
+    <div class="idoom"><svg viewBox="0 0 30 16" fill="none" stroke="#b09a68" stroke-width="1"><g transform="rotate(-9 8 8)"><rect x="4" y="2" width="6" height="12" rx="3"/><path d="M5 5h4M5 8h4M5 11h4" stroke-width=".9"/></g><g transform="rotate(11 22 8)"><rect x="19" y="2" width="6" height="12" rx="3"/><path d="M20 5h4M20 8h4M20 11h4" stroke-width=".9"/></g><path d="M13 3l2 4-2 3 2 4" stroke-width=".8" stroke-dasharray="2 2"/></svg><span>Douze destins t'attendent, de la gloire au bûcher. Tes florins peuvent fondre, la Faveur de l'Église peut te lâcher, et <b>la Fortune compte chacun de tes revers aux dés</b>.</span></div>
+    <button class="icta" id="introgo">Façonner mon apprenti ou mon apprentie »</button>
+  </div>
+</div>
+<!-- ===FRONTIS=== -->
+<div class="frontis" id="frontis" style="display:none">
+  <div class="fcard">
+    <p class="wm">Virtù</p>
+    <p class="k">Le renouvellement de la vision de l'Homme</p>
+    <h2>Façonne l'apprenti ou l'apprentie que tu seras</h2>
+    <p>Florence attend son nouveau talent. Choisis ton métier, puis répartis tes points entre les quatre qualités du personnage que tu incarnes : elles décideront des paris possibles, des affrontements gagnables, et de la fin de ton histoire.</p>
+    <div class="frow"><label>Ton titre</label><div class="fseg" id="seg"><button data-g="apprenti" class="on">Apprenti</button><button data-g="apprentie">Apprentie</button></div></div>
+    <div class="frow2"><div class="frow"><label>Ton nom</label><input id="nom" maxlength="16" value="Andrea"></div><div class="frow"><label>Ton métier</label><div class="citechips" id="citechips"></div></div></div>
+    <div class="citenote" id="citenote"></div>
+    <span class="flabel">Répartis tes points entre tes qualités</span>
+    <div class="pool" id="pool"></div>
+    <div class="alloc" id="alloc"></div>
+    <button class="fcta" id="begin" disabled>Place tous tes points pour commencer</button>
+    <div class="fmeta"><button type="button" onclick="openGalerie()">La galerie des destins</button><span>·</span><button type="button" onclick="openDistinctions()">Les distinctions</button><span>·</span><button type="button" onclick="openLexique()">Le lexique</button></div>
+  </div>
+</div>
