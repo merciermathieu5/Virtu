@@ -22,10 +22,11 @@ moteur de Lugal, avec un moteur d'affrontements sans violence en plus.
 
 ## Fichiers
 - `index.html` : le jeu complet (à déposer tel quel sur GitHub Pages)
-- `ambiance.mp3` : à fournir (piste d'ambiance Renaissance, boucle) ; sans elle,
-  le jeu fonctionne, seuls les effets sonores WebAudio jouent
+- `ambiance.mp3` : trame sonore Renaissance fournie (« Renaissance Echo » de
+  Vifotofreesounds, Pixabay, boucle activée par le bouton du bandeau) ; à
+  déposer à côté de index.html
 - `build.py` + `parts/` + `lugal-source.html` : la chaîne d'assemblage
-- `test/valide.js` : harnais jsdom (649 vérifications)
+- `test/valide.js` : harnais jsdom (653 vérifications)
 
 ## Reconstruire et valider
 ```

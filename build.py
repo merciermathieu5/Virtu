@@ -303,6 +303,8 @@ css = """
 .ibanner svg{border:1px solid rgba(176,138,46,.55);border-radius:2px;background:rgba(255,251,238,.35)}
 .hcard{border:1px solid rgba(176,138,46,.5);border-top:2.5px solid rgba(156,58,44,.55);background:rgba(255,251,238,.5)}
 .ireal{border-color:rgba(176,138,46,.6)}
+/* ====== les boutons du bandeau restent sous la feuille et les voiles ====== */
+.soundtgl,.lexbtn{z-index:29}
 """
 html = rep(html, "</style>", css + "</style>", "CSS combat")
 
