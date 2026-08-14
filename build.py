@@ -166,6 +166,17 @@ P = [
  # palette des documents (parchemin plutôt qu'argile)
  ("radial-gradient(130% 100% at 28% 16%,#d3b78d 0%,#c4a375 46%,#a8845b 100%)",
   "radial-gradient(130% 100% at 28% 16%,#f0e4c4 0%,#e4d2a6 46%,#ccb27e 100%)", 1),
+ # plus de chrono de consultation : la question est accessible d'emblée
+ ("const READ_LOCK=6;", "const READ_LOCK=0;", 1),
+ ("`<span class=\"src-timer\" id=\"srctimer\">Prends le temps de l'étudier… <b id=\"srcnum\">${READ_LOCK}</b> s</span><button class=\"modal-btn\" id=\"srcclose\" disabled>Patiente…</button>`",
+  "`<span class=\"src-timer\" id=\"srctimer\">Lis la source, puis montre que tu as bien lu.</span><button class=\"modal-btn\" id=\"srcclose\" disabled>Réponds d'abord à la question</button>`", 1),
+ ('<button type="button" class="swapbtn off" id="sqfwd">Répondre à la question ↓</button>',
+  '<button type="button" class="swapbtn primo off" id="sqfwd">Répondre à la question »</button>', 1),
+ ("            swap(true);\n", "", 1),
+ # défilement automatique vers l'offre des Muses et la zone de dés
+ ('dz.appendChild(div);\n    $("#favyes")', 'dz.appendChild(div);voirEl(div);\n    $("#favyes")', 1),
+ ('$("#rollbtn").onclick=()=>{audioInit();audioResume();lancer();};',
+  '$("#rollbtn").onclick=()=>{audioInit();audioResume();lancer();};\n  voirEl(dz);', 1),
 ]
 for old, new, cnt in P:
     if cnt == 0:
@@ -185,6 +196,11 @@ html = rep(html,
   'même le plus grand roi peut être trahi par le sort, et un double-un échoue toujours, et les dieux comptent tes revers : au troisième, ton règne est maudit.${F.faveurs>0?" Si le sort te trahit, tu pourras <b>implorer les dieux</b> et relancer, une seule fois par épreuve.":""}',
   'même le plus grand esprit peut être trahi par le sort, et un double-un échoue toujours, et la Fortune compte tes revers : au troisième, elle t\'abandonne.${F.faveurs>0?" Si le sort te trahit, tu pourras <b>invoquer les Muses</b> et relancer, une seule fois par épreuve.":""}',
   "règle des dés", 1)
+
+html = rrep(html,
+  r"let t=READ_LOCK;\s*const iv=setInterval\(\(\)=>\{t--;const num=\$\(\"#srcnum\"\);if\(num\)num\.textContent=Math\.max\(t,0\);\s*if\(t<=0\)\{clearInterval\(iv\);",
+  "{", "chrono : ouverture immédiate", 1)
+html = rep(html, 'armClose();}\n        }},1000);', 'armClose();}\n        }', "chrono : fermeture du bloc", 1)
 
 # ---- 6. MARQUES ----
 marques = {
@@ -259,6 +275,34 @@ css = """
 .cz-favor{border:1px solid var(--paper-edge);background:rgba(231,198,106,.16);border-radius:4px;padding:6px 9px;font-size:12.5px}
 .cz-favor p{margin:0 0 6px}
 .wedge{display:none}
+/* ====== la page de décision défile : plus de bouton hors page ====== */
+.dec{overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+.dec::-webkit-scrollbar{width:5px}
+.dec::-webkit-scrollbar-thumb{background:rgba(120,90,45,.32);border-radius:3px}
+/* ====== documents : feuille de papier enluminée, lisible ====== */
+.clay{background:radial-gradient(140% 120% at 30% 12%,#fcf6e2 0%,#f4e8c8 52%,#e4d2a4 100%);border-radius:2px 5px 3px 5px/4px 3px 5px 3px;border:1px solid #ad9160;box-shadow:0 3px 10px rgba(40,26,10,.22),inset 0 0 30px rgba(176,138,46,.13);padding:20px 26px 17px}
+.clay::before{content:"";position:absolute;inset:7px;border:1.5px solid rgba(176,138,46,.78);pointer-events:none;background-image:radial-gradient(circle,#b08a2e 0 2.1px,rgba(156,58,44,.85) 2.1px 3px,transparent 3.5px),radial-gradient(circle,#b08a2e 0 2.1px,rgba(156,58,44,.85) 2.1px 3px,transparent 3.5px),radial-gradient(circle,#b08a2e 0 2.1px,rgba(156,58,44,.85) 2.1px 3px,transparent 3.5px),radial-gradient(circle,#b08a2e 0 2.1px,rgba(156,58,44,.85) 2.1px 3px,transparent 3.5px);background-size:11px 11px;background-repeat:no-repeat;background-position:-5px -5px,calc(100% + 5px) -5px,-5px calc(100% + 5px),calc(100% + 5px) calc(100% + 5px)}
+.clay::after{content:"";position:absolute;inset:11px;border:1px solid rgba(156,58,44,.4);pointer-events:none}
+.clay p{font-style:normal;font-size:17px;line-height:1.66;color:#2b2010;text-shadow:none;position:relative;z-index:1}
+.clay p:first-of-type::first-letter{font-family:"IM Fell English SC",serif;font-size:46px;line-height:.82;float:left;padding:4px 8px 0 2px;color:var(--rubric);text-shadow:1.4px 1.4px 0 rgba(176,138,46,.65)}
+.clay.stone p{color:#ece2c8}
+.clay.stone p:first-of-type::first-letter{color:#e7c66a;text-shadow:1.4px 1.4px 0 rgba(0,0,0,.5)}
+/* ====== bouton « Répondre à la question » mis en évidence ====== */
+.swapbtn.primo{display:flex;align-items:center;justify-content:center;margin:16px auto 4px;background:var(--rubric);color:#f6e7d8;border:1px solid #7d2c20;text-decoration:none;font-style:normal;font-family:"IM Fell English SC",serif;font-size:13.5px;letter-spacing:.06em;padding:10px 22px;border-radius:4px;cursor:pointer;animation:primopulse 1.7s ease-in-out infinite}
+.swapbtn.primo:hover{filter:brightness(1.1)}
+@keyframes primopulse{0%,100%{box-shadow:0 2px 6px rgba(60,20,10,.3)}50%{box-shadow:0 2px 16px rgba(156,58,44,.6)}}
+/* ====== accueil : feuille de papier à enluminures ====== */
+.icard{background:radial-gradient(120% 100% at 50% 0%,#f9f0d8 0%,#f1e3bf 55%,#e1cc9e 100%);border:1px solid #a98d5b;border-radius:2px;padding:16px 44px 22px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.62)}
+.icard::before{content:"";position:absolute;inset:10px;border:1.7px solid rgba(176,138,46,.8);pointer-events:none;background-image:radial-gradient(circle,#b08a2e 0 2.4px,rgba(156,58,44,.85) 2.4px 3.4px,transparent 4px),radial-gradient(circle,#b08a2e 0 2.4px,rgba(156,58,44,.85) 2.4px 3.4px,transparent 4px),radial-gradient(circle,#b08a2e 0 2.4px,rgba(156,58,44,.85) 2.4px 3.4px,transparent 4px),radial-gradient(circle,#b08a2e 0 2.4px,rgba(156,58,44,.85) 2.4px 3.4px,transparent 4px);background-size:13px 13px;background-repeat:no-repeat;background-position:-6px -6px,calc(100% + 6px) -6px,-6px calc(100% + 6px),calc(100% + 6px) calc(100% + 6px)}
+.icard::after{content:"";position:absolute;inset:14px;border:1px solid rgba(156,58,44,.42);pointer-events:none}
+.icard>*{position:relative;z-index:1}
+.iwm{color:var(--ink)}
+.iwm::first-letter{color:var(--rubric);text-shadow:1.6px 1.6px 0 rgba(176,138,46,.65)}
+.ihook{font-style:normal;text-align:justify;text-align-last:center}
+.ihook::first-letter{font-family:"IM Fell English SC",serif;font-size:38px;line-height:.85;float:left;padding:3px 7px 0 0;color:var(--rubric);text-shadow:1.3px 1.3px 0 rgba(176,138,46,.6)}
+.ibanner svg{border:1px solid rgba(176,138,46,.55);border-radius:2px;background:rgba(255,251,238,.35)}
+.hcard{border:1px solid rgba(176,138,46,.5);border-top:2.5px solid rgba(156,58,44,.55);background:rgba(255,251,238,.5)}
+.ireal{border-color:rgba(176,138,46,.6)}
 """
 html = rep(html, "</style>", css + "</style>", "CSS combat")
 

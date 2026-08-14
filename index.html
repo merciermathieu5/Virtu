@@ -451,6 +451,34 @@ body:not(.playing) .sheet-drawer{display:none}
 .cz-favor{border:1px solid var(--paper-edge);background:rgba(231,198,106,.16);border-radius:4px;padding:6px 9px;font-size:12.5px}
 .cz-favor p{margin:0 0 6px}
 .wedge{display:none}
+/* ====== la page de décision défile : plus de bouton hors page ====== */
+.dec{overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+.dec::-webkit-scrollbar{width:5px}
+.dec::-webkit-scrollbar-thumb{background:rgba(120,90,45,.32);border-radius:3px}
+/* ====== documents : feuille de papier enluminée, lisible ====== */
+.clay{background:radial-gradient(140% 120% at 30% 12%,#fcf6e2 0%,#f4e8c8 52%,#e4d2a4 100%);border-radius:2px 5px 3px 5px/4px 3px 5px 3px;border:1px solid #ad9160;box-shadow:0 3px 10px rgba(40,26,10,.22),inset 0 0 30px rgba(176,138,46,.13);padding:20px 26px 17px}
+.clay::before{content:"";position:absolute;inset:7px;border:1.5px solid rgba(176,138,46,.78);pointer-events:none;background-image:radial-gradient(circle,#b08a2e 0 2.1px,rgba(156,58,44,.85) 2.1px 3px,transparent 3.5px),radial-gradient(circle,#b08a2e 0 2.1px,rgba(156,58,44,.85) 2.1px 3px,transparent 3.5px),radial-gradient(circle,#b08a2e 0 2.1px,rgba(156,58,44,.85) 2.1px 3px,transparent 3.5px),radial-gradient(circle,#b08a2e 0 2.1px,rgba(156,58,44,.85) 2.1px 3px,transparent 3.5px);background-size:11px 11px;background-repeat:no-repeat;background-position:-5px -5px,calc(100% + 5px) -5px,-5px calc(100% + 5px),calc(100% + 5px) calc(100% + 5px)}
+.clay::after{content:"";position:absolute;inset:11px;border:1px solid rgba(156,58,44,.4);pointer-events:none}
+.clay p{font-style:normal;font-size:17px;line-height:1.66;color:#2b2010;text-shadow:none;position:relative;z-index:1}
+.clay p:first-of-type::first-letter{font-family:"IM Fell English SC",serif;font-size:46px;line-height:.82;float:left;padding:4px 8px 0 2px;color:var(--rubric);text-shadow:1.4px 1.4px 0 rgba(176,138,46,.65)}
+.clay.stone p{color:#ece2c8}
+.clay.stone p:first-of-type::first-letter{color:#e7c66a;text-shadow:1.4px 1.4px 0 rgba(0,0,0,.5)}
+/* ====== bouton « Répondre à la question » mis en évidence ====== */
+.swapbtn.primo{display:flex;align-items:center;justify-content:center;margin:16px auto 4px;background:var(--rubric);color:#f6e7d8;border:1px solid #7d2c20;text-decoration:none;font-style:normal;font-family:"IM Fell English SC",serif;font-size:13.5px;letter-spacing:.06em;padding:10px 22px;border-radius:4px;cursor:pointer;animation:primopulse 1.7s ease-in-out infinite}
+.swapbtn.primo:hover{filter:brightness(1.1)}
+@keyframes primopulse{0%,100%{box-shadow:0 2px 6px rgba(60,20,10,.3)}50%{box-shadow:0 2px 16px rgba(156,58,44,.6)}}
+/* ====== accueil : feuille de papier à enluminures ====== */
+.icard{background:radial-gradient(120% 100% at 50% 0%,#f9f0d8 0%,#f1e3bf 55%,#e1cc9e 100%);border:1px solid #a98d5b;border-radius:2px;padding:16px 44px 22px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.62)}
+.icard::before{content:"";position:absolute;inset:10px;border:1.7px solid rgba(176,138,46,.8);pointer-events:none;background-image:radial-gradient(circle,#b08a2e 0 2.4px,rgba(156,58,44,.85) 2.4px 3.4px,transparent 4px),radial-gradient(circle,#b08a2e 0 2.4px,rgba(156,58,44,.85) 2.4px 3.4px,transparent 4px),radial-gradient(circle,#b08a2e 0 2.4px,rgba(156,58,44,.85) 2.4px 3.4px,transparent 4px),radial-gradient(circle,#b08a2e 0 2.4px,rgba(156,58,44,.85) 2.4px 3.4px,transparent 4px);background-size:13px 13px;background-repeat:no-repeat;background-position:-6px -6px,calc(100% + 6px) -6px,-6px calc(100% + 6px),calc(100% + 6px) calc(100% + 6px)}
+.icard::after{content:"";position:absolute;inset:14px;border:1px solid rgba(156,58,44,.42);pointer-events:none}
+.icard>*{position:relative;z-index:1}
+.iwm{color:var(--ink)}
+.iwm::first-letter{color:var(--rubric);text-shadow:1.6px 1.6px 0 rgba(176,138,46,.65)}
+.ihook{font-style:normal;text-align:justify;text-align-last:center}
+.ihook::first-letter{font-family:"IM Fell English SC",serif;font-size:38px;line-height:.85;float:left;padding:3px 7px 0 0;color:var(--rubric);text-shadow:1.3px 1.3px 0 rgba(176,138,46,.6)}
+.ibanner svg{border:1px solid rgba(176,138,46,.55);border-radius:2px;background:rgba(255,251,238,.35)}
+.hcard{border:1px solid rgba(176,138,46,.5);border-top:2.5px solid rgba(156,58,44,.55);background:rgba(255,251,238,.5)}
+.ireal{border-color:rgba(176,138,46,.6)}
 </style>
 </head>
 <body>
@@ -509,7 +537,7 @@ body:not(.playing) .sheet-drawer{display:none}
 <audio id="ambiance" loop preload="auto"><source src="ambiance.mp3" type="audio/mpeg"></audio>
 
 <script>
-const READ_LOCK=6;const MALCHANCE=3;
+const READ_LOCK=0;const MALCHANCE=3;
 const EMBLEME=`<svg viewBox="0 0 40 40" fill="none" stroke="#5e451f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 33q-4-9 2-15" /><path d="M29 33q4-9-2-15"/><g stroke-width="1.2"><path d="M11 28l-4-2M12 23l-4-3M14 19l-3-4M29 28l4-2M28 23l4-3M26 19l3-4"/></g><path d="M14 30v-12q6-4 12 0v12q-6-3-12 0z"/><path d="M20 17.5v12" stroke-width="1.2"/><circle cx="20" cy="9" r="3.4" stroke="#9c3a2c" stroke-width="1.3"/></svg>`;
 const ICO_PROSP=`<svg viewBox="0 0 20 20" fill="none" stroke="#5f421e" stroke-width="1.4"><rect x="3" y="7" width="14" height="9" rx="1.5"/><path d="M3 10h14M10 7V5"/></svg>`;
 const ICO_RAYON=`<svg viewBox="0 0 20 20" fill="none" stroke="#5f421e" stroke-width="1.4"><path d="M3 16h14l-3-4H6zM6 12l2-3h4l2 3M9 9l1-2 1 2"/></svg>`;
@@ -528,10 +556,10 @@ const ICO_MET={renommee:ICO_RENOM,florins:ICO_FLORIN,eglise:ICO_EGLISE};
 const UNLOCK_MSG={};
 const LAB={eloquence:"Éloquence",adresse:"Adresse",erudition:"Érudition",virtu:"Virtù",renommee:"Renommée",florins:"Florins",eglise:"Faveur de l'Église"};
 const QDESC={
- eloquence:"L'art de convaincre par la parole : les joutes, les disputes savantes et les tribunaux se gagnent avec elle.",
- adresse:"L'habileté de la main et du corps : l'atelier, la presse et les ruelles la mettront à l'épreuve.",
- erudition:"Les langues anciennes, les textes et les sciences : elle arme ton esprit critique et te vaut l'Inspiration des Muses.",
- virtu:"L'audace de saisir la Fortune quand elle passe : oser ce que les autres ne tentent pas."};
+ eloquence:"Convaincre par la parole. Elle sert au discours devant le mécène, à la grande disputatio de Wittenberg et à ta défense devant le tribunal du Saint-Office.",
+ adresse:"L'habileté de la main et du corps. Elle sert à tes ouvrages d'atelier, au concours public de Florence et à la livraison d'une précieuse cargaison dans Venise.",
+ erudition:"Les langues anciennes, les textes et les sciences. Elle ouvre le cercle des humanistes, permet de démasquer un faux manuscrit, et donne 3 Inspirations des Muses à 10 ou plus.",
+ virtu:"L'audace de saisir la Fortune quand elle passe. Elle sert aux coups d'éclat risqués, comme défier la censure impériale ou entrer par effraction dans ton destin."};
 const SCEAUX_ORDRE=["Perspective maîtrisée","Anatomiste de l'ombre","Protégé d'un mécène","Esprit libre","Lauréat du concours","Compagnon d'imprimerie","Outremer livré","Ami des humanistes","Presse clandestine","Délateur","Liberté d'examen","Indulgence achetée","Voix critique","Diffuseur des thèses","Défenseur de Rome","Vainqueur de la dispute","Tirage sauvé","Commande du cardinal","Lecteur de Copernic","Philologue","Vérité publiée","Preuve enterrée","Silence acheté","Blanchi par le tribunal","Abjuration","Persistant","Serviteur de la Contre-Réforme","Passage en France","Carnet de croquis","Casse de caractères","Grammaire grecque"];
 const BASE=6, POOL=16, MAXADD=10;   // chaque qualité : 6 à 16
 let F=null;
@@ -1229,7 +1257,7 @@ function tenterEpreuve(r,btn){
     const old=$("#dzfavor");if(old)old.remove();
     const div=document.createElement("div");div.id="dzfavor";div.className="dz-favor";
     div.innerHTML=`<p>Les dés te trahissent : <b>${score}</b>, il fallait <b>${seuil}</b>. Comme les poètes le chantent, tu peux <b>invoquer les Muses</b> et relancer, une seule fois.</p><div class="dz-favor-b"><button type="button" class="btn-ink" id="favyes">Invoquer les Muses · Inspiration −1</button><button type="button" class="favno" id="favno">Accepter le sort</button></div>`;
-    dz.appendChild(div);
+    dz.appendChild(div);voirEl(div);
     $("#favyes").onclick=()=>{favUsed=true;F.faveurs=Math.max(0,F.faveurs-1);rendreTablette();sfxUnlock();lancer();};
     $("#favno").onclick=()=>{div.remove();resoudre(a,bb,score,false);};
   };
@@ -1275,6 +1303,7 @@ function tenterEpreuve(r,btn){
     },78);
   };
   $("#rollbtn").onclick=()=>{audioInit();audioResume();lancer();};
+  voirEl(dz);
 }
 function finaliser(btn,cible,suite){
   if(F&&STORY[cible]&&!STORY[cible].fin){
@@ -1438,9 +1467,9 @@ function rendre(flash){
       const m=$("#modal");
       const foot=studied
         ?`<button class="modal-btn" id="srcclose">Fermer la source</button>`
-        :`<span class="src-timer" id="srctimer">Prends le temps de l'étudier… <b id="srcnum">${READ_LOCK}</b> s</span><button class="modal-btn" id="srcclose" disabled>Patiente…</button>`;
+        :`<span class="src-timer" id="srctimer">Lis la source, puis montre que tu as bien lu.</span><button class="modal-btn" id="srcclose" disabled>Réponds d'abord à la question</button>`;
       const quizView=(!studied&&s.q)?`<div class="srcqv off" id="srcquizview"><div class="sq-h">Vérifie ta lecture</div><p class="sq-q">${s.q.txt}</p><div class="sq-ch" id="sqch"></div><p class="sq-hint" id="sqhint"></p><button type="button" class="swapbtn" id="sqback">↑ Revoir la source</button></div>`:"";
-      m.innerHTML=`<div class="modal-card wide srcmodal"><div class="modal-k">Source à consulter</div><div class="srcview" id="srcview">${plate(s)}<button type="button" class="swapbtn off" id="sqfwd">Répondre à la question ↓</button></div>${quizView}<div class="src-foot">${foot}</div></div>`;
+      m.innerHTML=`<div class="modal-card wide srcmodal"><div class="modal-k">Source à consulter</div><div class="srcview" id="srcview">${plate(s)}<button type="button" class="swapbtn primo off" id="sqfwd">Répondre à la question »</button></div>${quizView}<div class="src-foot">${foot}</div></div>`;
       m.classList.add("show");
       const close=()=>{m.classList.remove("show");m.innerHTML="";};
       if(studied){$("#srcclose").onclick=close;return;}
@@ -1451,9 +1480,7 @@ function rendre(flash){
         const cb=$("#consultbtn");if(cb)cb.innerHTML=`${SCROLL} Revoir la source`;
         const hint=$("#consultrow")&&$("#consultrow").querySelector(".consult-hint");if(hint)hint.textContent="déjà étudiée ; tu peux la rouvrir à tout moment";};
       const armClose=()=>{const b=$("#srcclose");if(b){b.disabled=false;b.textContent="J'ai étudié la source »";b.onclick=()=>{done();close();};}};
-      let t=READ_LOCK;
-      const iv=setInterval(()=>{t--;const num=$("#srcnum");if(num)num.textContent=Math.max(t,0);
-        if(t<=0){clearInterval(iv);
+      {
           if(s.q){
             F._quizTotal=(F._quizTotal||0)+1;let tried=false;
             const tm=$("#srctimer");if(tm)tm.textContent="Montre que tu as bien lu :";
@@ -1461,7 +1488,6 @@ function rendre(flash){
             const box=$("#sqch");if(!box){armClose();return;}
             const fb=$("#sqback");if(fb)fb.onclick=()=>swap(false);
             const ff=$("#sqfwd");if(ff){ff.classList.remove("off");ff.onclick=()=>swap(true);}
-            swap(true);
             const order=s.q.ch.map((_,i)=>i);
             for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const x=order[i];order[i]=order[j];order[j]=x;}
             box.innerHTML=order.map(i=>`<button type="button" data-qi="${i}">${s.q.ch[i]}</button>`).join("");
@@ -1478,13 +1504,14 @@ function rendre(flash){
               }
             });
           }else{const tm=$("#srctimer");if(tm)tm.textContent="Tu peux maintenant décider.";armClose();}
-        }},1000);
+        }
     };
   }
   else{enableOpen();}
 }
 
 /* ====== Affrontements sans violence : rondes de dés opposées ====== */
+function voirEl(el){if(el&&typeof el.scrollIntoView==="function"){try{el.scrollIntoView({block:"nearest",behavior:"smooth"});}catch(e){}}}
 function combatDegats(p,a){
   let dj=0,da=0;const notes=[];
   const pd=(p.d1===p.d2)?p.d1:0, ad=(a.d1===a.d2)?a.d1:0;
@@ -1554,6 +1581,7 @@ function tenterCombat(r,btn){
   </div>`;
   czMaj();
   $("#czroll").onclick=()=>{audioInit();audioResume();czTour();};
+  voirEl(dz);
 }
 function czMontrerDes(p,q,cb){
   const ids=[["cd1",p.d1],["cd2",p.d2],["ce1",q.d1],["ce2",q.d2]];
@@ -1589,7 +1617,7 @@ function czOffrirRelance(g){
   const dz=$("#dicezone");if(!dz)return;
   const div=document.createElement("div");div.id="czfavor";div.className="cz-favor";
   div.innerHTML=`<p>La ronde tourne contre toi : tu perds <b>${g.dj}</b> point${g.dj>1?"s":""}. Tu peux <b>invoquer les Muses</b> et relancer tes dés, une seule fois par affrontement.</p><div class="dz-favor-b"><button type="button" class="btn-ink" id="czfy">Invoquer les Muses · Inspiration −1</button><button type="button" class="btn-ink" id="czfn">Laisser les dés parler</button></div>`;
-  dz.querySelector(".cz").appendChild(div);
+  dz.querySelector(".cz").appendChild(div);voirEl(div);
   $("#czfy").onclick=()=>{
     CB.relance=true;F.faveurs=Math.max(0,F.faveurs-1);rendreTablette();sfxUnlock();div.remove();
     const c=CB.c,m=CB.m;
@@ -1610,7 +1638,7 @@ function czAppliquer(g,relance){
   if(g.da>g.dj)sfxSuccess();else if(g.dj>g.da)sfxFail();else sfxClack();
   if(CB.a<=0&&CB.j>0){czFinir(true);return;}
   if(CB.j<=0){czFinir(false);return;}
-  const rb=$("#czroll");if(rb){rb.disabled=false;rb.textContent=`Lancer les dés · ronde ${CB.rd+1}`;}
+  const rb=$("#czroll");if(rb){rb.disabled=false;rb.textContent=`Lancer les dés · ronde ${CB.rd+1}`;voirEl(rb);}
 }
 function czFinir(win){
   CB.fini=true;

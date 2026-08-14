@@ -8,10 +8,10 @@ const ICO_MET={renommee:ICO_RENOM,florins:ICO_FLORIN,eglise:ICO_EGLISE};
 const UNLOCK_MSG={};
 const LAB={eloquence:"Éloquence",adresse:"Adresse",erudition:"Érudition",virtu:"Virtù",renommee:"Renommée",florins:"Florins",eglise:"Faveur de l'Église"};
 const QDESC={
- eloquence:"L'art de convaincre par la parole : les joutes, les disputes savantes et les tribunaux se gagnent avec elle.",
- adresse:"L'habileté de la main et du corps : l'atelier, la presse et les ruelles la mettront à l'épreuve.",
- erudition:"Les langues anciennes, les textes et les sciences : elle arme ton esprit critique et te vaut l'Inspiration des Muses.",
- virtu:"L'audace de saisir la Fortune quand elle passe : oser ce que les autres ne tentent pas."};
+ eloquence:"Convaincre par la parole. Elle sert au discours devant le mécène, à la grande disputatio de Wittenberg et à ta défense devant le tribunal du Saint-Office.",
+ adresse:"L'habileté de la main et du corps. Elle sert à tes ouvrages d'atelier, au concours public de Florence et à la livraison d'une précieuse cargaison dans Venise.",
+ erudition:"Les langues anciennes, les textes et les sciences. Elle ouvre le cercle des humanistes, permet de démasquer un faux manuscrit, et donne 3 Inspirations des Muses à 10 ou plus.",
+ virtu:"L'audace de saisir la Fortune quand elle passe. Elle sert aux coups d'éclat risqués, comme défier la censure impériale ou entrer par effraction dans ton destin."};
 const SCEAUX_ORDRE=["Perspective maîtrisée","Anatomiste de l'ombre","Protégé d'un mécène","Esprit libre","Lauréat du concours","Compagnon d'imprimerie","Outremer livré","Ami des humanistes","Presse clandestine","Délateur","Liberté d'examen","Indulgence achetée","Voix critique","Diffuseur des thèses","Défenseur de Rome","Vainqueur de la dispute","Tirage sauvé","Commande du cardinal","Lecteur de Copernic","Philologue","Vérité publiée","Preuve enterrée","Silence acheté","Blanchi par le tribunal","Abjuration","Persistant","Serviteur de la Contre-Réforme","Passage en France","Carnet de croquis","Casse de caractères","Grammaire grecque"];
 const BASE=6, POOL=16, MAXADD=10;   // chaque qualité : 6 à 16
 let F=null;

@@ -1,4 +1,5 @@
 /* ====== Affrontements sans violence : rondes de dés opposées ====== */
+function voirEl(el){if(el&&typeof el.scrollIntoView==="function"){try{el.scrollIntoView({block:"nearest",behavior:"smooth"});}catch(e){}}}
 function combatDegats(p,a){
   let dj=0,da=0;const notes=[];
   const pd=(p.d1===p.d2)?p.d1:0, ad=(a.d1===a.d2)?a.d1:0;
@@ -68,6 +69,7 @@ function tenterCombat(r,btn){
   </div>`;
   czMaj();
   $("#czroll").onclick=()=>{audioInit();audioResume();czTour();};
+  voirEl(dz);
 }
 function czMontrerDes(p,q,cb){
   const ids=[["cd1",p.d1],["cd2",p.d2],["ce1",q.d1],["ce2",q.d2]];
@@ -103,7 +105,7 @@ function czOffrirRelance(g){
   const dz=$("#dicezone");if(!dz)return;
   const div=document.createElement("div");div.id="czfavor";div.className="cz-favor";
   div.innerHTML=`<p>La ronde tourne contre toi : tu perds <b>${g.dj}</b> point${g.dj>1?"s":""}. Tu peux <b>invoquer les Muses</b> et relancer tes dés, une seule fois par affrontement.</p><div class="dz-favor-b"><button type="button" class="btn-ink" id="czfy">Invoquer les Muses · Inspiration −1</button><button type="button" class="btn-ink" id="czfn">Laisser les dés parler</button></div>`;
-  dz.querySelector(".cz").appendChild(div);
+  dz.querySelector(".cz").appendChild(div);voirEl(div);
   $("#czfy").onclick=()=>{
     CB.relance=true;F.faveurs=Math.max(0,F.faveurs-1);rendreTablette();sfxUnlock();div.remove();
     const c=CB.c,m=CB.m;
@@ -124,7 +126,7 @@ function czAppliquer(g,relance){
   if(g.da>g.dj)sfxSuccess();else if(g.dj>g.da)sfxFail();else sfxClack();
   if(CB.a<=0&&CB.j>0){czFinir(true);return;}
   if(CB.j<=0){czFinir(false);return;}
-  const rb=$("#czroll");if(rb){rb.disabled=false;rb.textContent=`Lancer les dés · ronde ${CB.rd+1}`;}
+  const rb=$("#czroll");if(rb){rb.disabled=false;rb.textContent=`Lancer les dés · ronde ${CB.rd+1}`;voirEl(rb);}
 }
 function czFinir(win){
   CB.fini=true;

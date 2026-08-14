@@ -289,18 +289,23 @@ function smoke(){
   // Consulter la source (nœud atelier → contrat, document avec quiz)
   $("#consultbtn").click();
   ok($("#modal").classList.contains("show"), "la fenêtre de source ne s'ouvre pas");
-  ok($("#srcclose") && $("#srcclose").disabled, "le bouton de fermeture devrait être verrouillé pendant le chrono");
+  ok($("#srcclose") && $("#srcclose").disabled, "le bouton de fermeture devrait être verrouillé avant la bonne réponse");
+  ok(/Réponds d'abord à la question/.test($("#srcclose").textContent), "le bouton verrouillé devrait annoncer la question");
   ok($(".plate"), "pas de planche dans la fenêtre de source");
-  ok($(".clay"), "le contrat devrait se présenter en document parchemin");
+  ok($(".clay"), "le contrat devrait se présenter en feuille de papier enluminée");
   ok($("#srcquizview"), "la vue de vérification est absente du DOM");
-  ok($("#srcquizview").classList.contains("off"), "la question ne devrait pas être visible pendant le chrono");
-  ok(!$("#srcview").classList.contains("off"), "la source devrait être visible pendant le chrono");
+  ok($("#srcquizview").classList.contains("off"), "la question ne devrait pas s'afficher avant le clic");
+  ok(!$("#srcview").classList.contains("off"), "la source devrait s'afficher en premier");
+  ok(ev("READ_LOCK") === 0, "le chrono de consultation devrait avoir disparu (READ_LOCK = 0)");
+  ok(ev("F._quizTotal") === 1, "F._quizTotal ≠ 1");
+  const fwd = $("#sqfwd");
+  ok(fwd && !fwd.classList.contains("off"), "« Répondre à la question » devrait être disponible d'emblée");
+  ok(fwd.classList.contains("primo"), "« Répondre à la question » devrait être mis en évidence (classe primo)");
 
   // Échap ne doit PAS fermer tant que le bouton est verrouillé
   window.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
   ok($("#modal").classList.contains("show"), "Échap contourne le verrou de lecture");
 
-  // Attendre la fin du chrono (READ_LOCK s réels, lu dans le jeu)
   const wait = (ms) => new Promise(r => setTimeout(r, ms));
   const waitFor = async (fn, ms = 5000, step = 60) => {
     const t0 = Date.now();
@@ -308,12 +313,11 @@ function smoke(){
     try { return !!fn(); } catch (e) { return false; }
   };
   setTimeout(async () => {
-    // La bascule vers la question peut prendre quelques ms de plus que le chrono
-    await waitFor(() => $("#srcquizview") && !$("#srcquizview").classList.contains("off"), 3000);
-    ok(!$("#srcquizview").classList.contains("off"), "la question n'apparaît pas après le chrono");
+    // Bascule manuelle vers la question par le bouton mis en évidence
+    fwd.click();
+    ok(!$("#srcquizview").classList.contains("off"), "la question n'apparaît pas après le clic sur le bouton");
     ok($("#srcview").classList.contains("off"), "la source devrait s'effacer au profit de la question");
     ok($("#srcclose").disabled, "le bouton se déverrouille sans réponse au quiz");
-    ok(ev("F._quizTotal") === 1, "F._quizTotal ≠ 1");
 
     // Bascule : revoir la source, puis revenir à la question
     $("#sqback").click();
