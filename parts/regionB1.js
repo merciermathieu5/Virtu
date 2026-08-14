@@ -1,6 +1,6 @@
 const SRC={
   contrat:{h:"Le contrat d'apprentissage",kind:DOC,
-    doc:["Moi, maître de la bottega, je prends chez moi le jeune Andrea pour quatre années. Je m'engage à le loger, à le nourrir et à lui enseigner l'art selon la coutume de Florence : broyer les couleurs, préparer les panneaux, dessiner d'après les maîtres.","L'apprenti promet obéissance et travail. À la fin du terme, il recevra un salaire et pourra présenter son ouvrage aux juges de la corporation."],
+    doc:["Moi, maître de la bottega, je prends chez moi {NOM} pour quatre années. Je m'engage à loger, nourrir et enseigner l'art selon la coutume de Florence : broyer les couleurs, préparer les panneaux, dessiner d'après les maîtres.","L'apprenti{E} promet obéissance et travail. À la fin du terme, un salaire sera versé, et l'ouvrage pourra être présenté aux juges de la corporation."],
     note:"Document composé pour Virtù, d'après les contrats d'apprentissage des ateliers florentins du 15e siècle. Reconstitution, non un document d'archive.",
     q:{txt:"D'après ce contrat, à quoi le maître de l'atelier s'engage-t-il ?",ch:["Loger, nourrir et enseigner son art à l'apprenti","Payer les études de l'apprenti à l'université","Envoyer l'apprenti voyager à travers l'Europe"],ok:0}},
   fuite:{h:"La perspective et le point de fuite",kind:ILLUS,

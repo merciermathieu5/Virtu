@@ -160,6 +160,9 @@ P = [
   'const vies=loadSet(KVIES);if(F&&F.metier)vies.add(F.metier);saveSet(KVIES,vies);\n  const titres=loadSet(KTITRES),ctx={fin:finId,finsCount:fins.size,viesCount:vies.size},nouveaux=[];', 1),
  ('alloc={autorite:0,sagesse:0,piete:0,legitimite:0}',
   'alloc={eloquence:0,adresse:0,erudition:0,virtu:0}', 1),
+ # le prénom et l'accord de genre s'injectent dans les documents
+ ('function plate(s){',
+  'function plate(s){return _plateRaw(s).replace(/\\{NOM\\}/g,(F&&F.nom)?esc(F.nom):"Andrea").replace(/\\{E\\}/g,(F&&F.genre==="apprentie")?"e":"");}\nfunction _plateRaw(s){', 1),
  # exports pour le harnais
  ('module.exports={STORY,SRC,SCEAUX_ORDRE,QUALITES,METRES,evaluerFin,pReussite,BASE,POOL,MAXADD};',
   'module.exports={STORY,SRC,SEC,SCEAUX_ORDRE,QUALITES,METRES,evaluerFin,pReussite,BASE,POOL,MAXADD,FINS_ORDRE,TRIOMPHES,METIERS,MARQUES,combatDegats,simulerCombat};', 1),

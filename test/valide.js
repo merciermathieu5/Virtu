@@ -255,9 +255,16 @@ function smoke(){
       b && b.click();
     }
   }
+  // Personnalisation : prénom et genre choisis au frontispice
+  $("#nom").value = "Bianca";
+  const segF = document.querySelector('#seg button[data-g="apprentie"]');
+  segF && segF.click();
   const begin = $("#begin");
   ok(!begin.disabled, "le bouton d'ouverture reste verrouillé après 16 points");
   begin.click();
+
+  ok(ev("F.nom") === "Bianca", "le prénom personnalisé n'est pas retenu");
+  ok(ev("F.genre") === "apprentie", "le genre choisi n'est pas retenu");
 
   ok(ev("F && F.histoire.length") === 1, "histoire.length ≠ 1 après l'ouverture");
   ok(document.body.classList.contains("playing"), "body.playing absent");
@@ -293,6 +300,10 @@ function smoke(){
   ok(/Réponds d'abord à la question/.test($("#srcclose").textContent), "le bouton verrouillé devrait annoncer la question");
   ok($(".plate"), "pas de planche dans la fenêtre de source");
   ok($(".clay"), "le contrat devrait se présenter en feuille de papier enluminée");
+  ok(/Bianca/.test($("#modal").textContent), "le contrat devrait porter le prénom personnalisé");
+  ok(!/Andrea/.test($("#modal").textContent), "le prénom par défaut ne devrait plus apparaître dans le contrat");
+  ok(/L'apprentie promet/.test($("#modal").textContent), "l'accord de genre du contrat ne suit pas le choix apprentie");
+  ok(!/\{NOM\}|\{E\}/.test($("#modal").textContent), "des jetons de substitution restent visibles dans le document");
   ok($("#srcquizview"), "la vue de vérification est absente du DOM");
   ok($("#srcquizview").classList.contains("off"), "la question ne devrait pas s'afficher avant le clic");
   ok(!$("#srcview").classList.contains("off"), "la source devrait s'afficher en premier");
