@@ -65,7 +65,8 @@ function main(){
   }
   info(`${refs} références de sources vérifiées`);
 
-  // 3. Visuels : aucune photo externe ; chaque source non textuelle a son SVG
+  // 3. Visuels : chaque source non textuelle garde son SVG d'origine en réserve ;
+  //    les photos documentaires viennent toutes du dossier medias/ du dépôt
   let nSvg = 0;
   for (const k in SRC){
     const s = SRC[k];
@@ -73,7 +74,28 @@ function main(){
     if (!s.doc){ nSvg++; ok(s.svg && s.svg.includes("<svg"), `SVG manquant pour la source ${k}`); }
   }
   ok(!fs.existsSync(path.join(ROOT, "assets")), "le dossier assets/ devrait avoir disparu");
-  info(`${nSvg} illustrations SVG originales, aucune image externe`);
+  const UXI = ev("UX_IMAGES"), BASE = ev("UX_IMG_BASE");
+  ok(BASE === "medias/", "les photos doivent venir du dossier medias/ du dépôt");
+  let nPh = 0, manquants = [];
+  for (const k in UXI){
+    const im = UXI[k];
+    ok(SRC[k], `photo rattachée à une source inconnue : ${k}`);
+    ok(im.l && im.l.length > 20 && im.c, `photo ${k} : légende ou crédit manquant`);
+    const fichiers = Array.isArray(im.f) ? im.f : [im.f];
+    ok(fichiers.length >= 1 && fichiers.length <= 2, `photo ${k} : une ou deux images attendues`);
+    fichiers.forEach(f => { nPh++;
+      ok(/^[a-z0-9-]+\.(jpg|png)$/.test(f), `photo ${k} : nom de fichier inattendu « ${f} »`);
+      if (!fs.existsSync(path.join(ROOT, "medias", f))) manquants.push(f); });
+    if (SRC[k] && !SRC[k].doc){
+      ok(Array.isArray(im.a) && im.a.length >= 2 && im.a.every(a => a.ref && a.txt), `photo ${k} : la lecture de l'image doit décrire la photo`);
+      const ids = (SRC[k].arts || []).map(a => a.id).filter(Boolean);
+      ids.forEach(id => ok((im.a || []).some(a => a.id === id), `photo ${k} : le repère « ${id} » utilisé par les choix a disparu`));
+    }
+  }
+  ok(manquants.length === 0, `images absentes de medias/ (lance telecharger-medias.ps1) : ${manquants.join(", ")}`);
+  ok(fs.existsSync(path.join(ROOT, "medias", "CREDITS.md")), "medias/CREDITS.md manquant");
+  ok(Object.keys(UXI).length === Object.keys(SRC).length, `toutes les sources devraient avoir leur trace réelle (${Object.keys(UXI).length}/${Object.keys(SRC).length})`);
+  info(`${nSvg} schémas originaux en réserve, ${nPh} images documentaires pour ${Object.keys(UXI).length} sources`);
 
   // 4. Quiz : chaque source a une question à 3 choix, ok valide, choix distincts
   let nQ = 0;
@@ -147,13 +169,24 @@ function main(){
   info(`${nG} entrées de lexique, 8 concepts prescrits présents`);
 
   // 8. Rendu des sources : parchemin pour les textes (avec étiquette de
-  //    reconstitution), SVG sans référence, aucune mention de crédits
-  let nDoc = 0, nVis = 0, nStone = 0;
+  //    reconstitution), photo d'époque à la place du schéma pour les images,
+  //    aucune mention de crédits dans le corps, photos seulement depuis medias/
+  let nDoc = 0, nVis = 0, nStone = 0, nFig = 0;
   for (const k in SRC){
     const out = ev(`plate(SRC[${JSON.stringify(k)}])`);
     ok(!/SOURCES\.md/.test(out), `mention « SOURCES.md » dans la source ${k}`);
     ok(!/crédits/.test(out), `mention « crédits » dans la source ${k}`);
-    ok(!/<figure|<img/.test(out), `image externe rendue pour la source ${k}`);
+    const imgs = out.match(/<img[^>]*>/g) || [];
+    imgs.forEach(t => {
+      ok(/src="medias\/[a-z0-9-]+\.(jpg|png)"/.test(t), `image hors du dossier medias/ dans ${k}`);
+      ok(/loading="lazy"/.test(t), `image non différée dans ${k}`);
+      const alt = (t.match(/alt="([^"]*)"/) || [])[1] || "";
+      ok(alt.length >= 8, `texte alternatif trop court dans ${k}`);
+    });
+    if (imgs.length){ nFig++;
+      ok((out.match(/<figure class="uxphoto/g) || []).length === 1, `une seule figure attendue pour ${k}`);
+      ok(/<figcaption><b>La trace réelle<\/b>/.test(out), `légende « La trace réelle » absente pour ${k}`);
+    }
     if (SRC[k].doc){
       nDoc++;
       ok(!/plate-read/.test(out), `bloc Lecture affiché pour la source textuelle ${k}`);
@@ -162,6 +195,10 @@ function main(){
       if (SRC[k].mat === "stone"){ nStone++; ok(/clay stone/.test(out), `variante pierre absente pour ${k}`); }
     } else {
       ok(!/class="cite"/.test(out), `référence affichée sous l'illustration ${k}`);
+      if (imgs.length){
+        ok(!/class="illus"/.test(out), `le schéma reste affiché à côté de la photo pour ${k}`);
+        ok(!/Illustration originale/.test(out), `étiquette « Illustration originale » sur une photo pour ${k}`);
+      }
       if ((SRC[k].arts || []).length){
         nVis++;
         ok(/plate-read/.test(out), `bloc « Ce que montre l'image » absent pour ${k}`);
@@ -169,8 +206,23 @@ function main(){
     }
   }
   ok(nStone === 1, `attendu 1 source gravée dans la pierre, trouvé ${nStone}`);
-  ok(SRC.theses95.doc && !SRC.theses95.ph, "theses95 devrait être un document composé sans photo");
-  info(`${nDoc} documents composés étiquetés, ${nVis} illustrations avec lecture, sans référence`);
+  ok(SRC.theses95.doc && !SRC.theses95.ph, "theses95 devrait être un document composé");
+  info(`${nDoc} documents composés étiquetés, ${nVis} images avec lecture, ${nFig} sources avec leur trace réelle`);
+
+  // 8bis. Plancher de lisibilité : aucune taille de texte sous 12 px
+  {
+    const PLANCHER = 12;
+    const css = html.slice(html.indexOf("<style>"), html.indexOf("</style>"));
+    const fautives = []; let n = 0;
+    [...css.matchAll(/([^{}\n]+)\{([^}]*)\}/g)].forEach(m => {
+      const t = m[2].match(/font-size:\s*([0-9.]+)px/); if (!t) return; n++;
+      if (parseFloat(t[1]) < PLANCHER) fautives.push(`${m[1].trim().slice(0,40)} à ${t[1]}px`);
+    });
+    ok(fautives.length === 0, `texte sous ${PLANCHER}px : ${fautives.join(" · ")}`);
+    const hors = html.slice(0, html.indexOf("<style>")) + html.slice(html.indexOf("</style>"));
+    ok(!/font-size:\s*[0-9.]+px/.test(hors), "une taille de police traîne hors de la feuille de style");
+    info(`${n} règles de taille, plancher tenu à ${PLANCHER}px`);
+  }
 
   // 9. Numérotation des sections : bijection STORY ↔ SEC, §1 = le début
   const SEC = ev("SEC");
@@ -299,9 +351,16 @@ function smoke(){
   ok($("#srcclose") && $("#srcclose").disabled, "le bouton de fermeture devrait être verrouillé avant la bonne réponse");
   ok(/Réponds d'abord à la question/.test($("#srcclose").textContent), "le bouton verrouillé devrait annoncer la question");
   ok($(".plate"), "pas de planche dans la fenêtre de source");
+  ok($("#cnav #ctab1") && $("#cnav #ctab2"), "les onglets L'histoire / Ta décision manquent");
+  ok($("#uxhud") && /Inspiration/.test($("#uxhud").textContent) && /Revers/.test($("#uxhud").textContent), "le tableau de bord du bas devrait montrer l'Inspiration et les revers");
+  ok($("#uxfiche") && /sacoche/.test($("#uxfiche").textContent), "le bouton de la feuille du personnage manque");
+  ok($("#cgo") && $("#cback"), "les boutons Passe à ta décision / Relire l'histoire manquent");
+  ok(ev("computePages().every(p => p.length <= 1)"), "chaque section du récit devrait avoir sa propre page");
+  ok($(".uxphoto img") && /^medias\//.test($(".uxphoto img").getAttribute("src")), "le contrat devrait montrer sa trace réelle");
   ok($(".clay"), "le contrat devrait se présenter en feuille de papier enluminée");
-  ok(/Bianca/.test($("#modal").textContent), "le contrat devrait porter le prénom personnalisé");
-  ok(!/Andrea/.test($("#modal").textContent), "le prénom par défaut ne devrait plus apparaître dans le contrat");
+  ok(/Bianca/.test($(".clay").textContent), "le contrat devrait porter le prénom personnalisé");
+  ok(!/Andrea/.test($(".clay").textContent), "le prénom par défaut ne devrait plus apparaître dans le contrat");
+  // (la légende de la photo nomme Andrea del Verrocchio, le maître de Léonard : c'est voulu)
   ok(/L'apprentie promet/.test($("#modal").textContent), "l'accord de genre du contrat ne suit pas le choix apprentie");
   ok(!/\{NOM\}|\{E\}/.test($("#modal").textContent), "des jetons de substitution restent visibles dans le document");
   ok($("#srcquizview"), "la vue de vérification est absente du DOM");
