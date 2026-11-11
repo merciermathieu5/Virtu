@@ -353,6 +353,11 @@ ps = ["# telecharger-medias.ps1",
 for m in MEDIAS:
     for d in m["dl"]:
         ps.append(f'Recuperer "{d["f"]}" "{d["url"]}"')
+DOSSIER = json.loads(part("medias-dossier.json"))
+ps += ["", "# Images du cahier de l'eleve et du dossier documentaire (hors jeu)",
+       'New-Item -ItemType Directory -Force -Path "medias/dossier" | Out-Null']
+for d in DOSSIER:
+    ps.append(f'Recuperer "dossier/{d["f"]}" "{d["url"]}"')
 ps += ["", 'Write-Host ""',
        'Write-Host ("Termine : " + $n + " nouvelle(s) image(s) dans medias/. Lance maintenant : npm test")', ""]
 io.open("telecharger-medias.ps1", "w", encoding="utf-8-sig", newline="\r\n").write("\n".join(ps))
@@ -366,6 +371,10 @@ for m in MEDIAS:
     for d in m["dl"]:
         prov = ("Wikimedia Commons : " + d["commons"]) if d.get("commons") else ("muniverssocial.ca (fiche 07)")
         cr.append(f'| `{d["f"]}` | {m["cle"]} | {d["auteur"]} | {d["licence"]} | {prov} |')
+cr += ["", "## Cahier de l'élève et dossier documentaire (`medias/dossier/`)", "",
+       "| Fichier | Œuvre, auteur | Licence | Provenance |", "|---|---|---|---|"]
+for d in DOSSIER:
+    cr.append(f'| `dossier/{d["f"]}` | {d["auteur"]} | {d["licence"]} | Wikimedia Commons : {d["commons"]} |')
 cr += ["", "Les images sous licence CC BY-SA restent sous cette licence ; les autres sont dans le domaine public ou sous CC0.", ""]
 import os
 os.makedirs("medias", exist_ok=True)

@@ -1,0 +1,37 @@
+[
+ {
+  "f": "ecole-athenes.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Raphael_School_of_Athens.jpg/1280px-Raphael_School_of_Athens.jpg",
+  "commons": "Raphael School of Athens.jpg",
+  "auteur": "Raphaël, L'École d'Athènes, vers 1509-1511, Vatican",
+  "licence": "domaine public"
+ },
+ {
+  "f": "bible-luther-1534.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Lutherbibel.jpg/960px-Lutherbibel.jpg",
+  "commons": "Lutherbibel.jpg",
+  "auteur": "Bible de Luther, Wittenberg, 1534 (photo : Torsten Schleese)",
+  "licence": "domaine public"
+ },
+ {
+  "f": "carte-imprimerie.png",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Printing_towns_incunabula.svg/960px-Printing_towns_incunabula.svg.png",
+  "commons": "Printing towns incunabula.svg",
+  "auteur": "NordNordWest, d'après l'Incunabula Short Title Catalogue",
+  "licence": "CC BY-SA 3.0 DE"
+ },
+ {
+  "f": "maitre-ecole-holbein.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Leits%C3%A4tze_eines_Schulmeisters%2C_Szene-_Unterricht_f%C3%BCr_Erwachsene_%281516%29_-_Hans_Holbein_d._J._%28Kunstmuseum_Basel%29.jpg/960px-Leits%C3%A4tze_eines_Schulmeisters%2C_Szene-_Unterricht_f%C3%BCr_Erwachsene_%281516%29_-_Hans_Holbein_d._J._%28Kunstmuseum_Basel%29.jpg",
+  "commons": "Leitsätze eines Schulmeisters, Szene- Unterricht für Erwachsene (1516) - Hans Holbein d. J. (Kunstmuseum Basel).jpg",
+  "auteur": "Hans Holbein le Jeune, enseigne d'un maître d'école, 1516, Kunstmuseum Basel",
+  "licence": "domaine public"
+ },
+ {
+  "f": "homme-vitruve.jpg",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Da_Vinci_Vitruve_Luc_Viatour.jpg/500px-Da_Vinci_Vitruve_Luc_Viatour.jpg",
+  "commons": "Da Vinci Vitruve Luc Viatour.jpg",
+  "auteur": "Léonard de Vinci, L'Homme de Vitruve, vers 1490, Gallerie dell'Accademia, Venise (photo : Luc Viatour)",
+  "licence": "domaine public"
+ }
+]

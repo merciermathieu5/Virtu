@@ -30,4 +30,14 @@ Images affichées sous « La trace réelle » dans les sources du jeu. Ce fichie
 | `inquisition.jpg` | saintoffice | Pedro Berruguete, Saint Dominique présidant un autodafé, 1495 (Wikimedia Commons) | domaine public | muniverssocial.ca (fiche 07) |
 | `concile-trente.jpg` | trente | Laurom (Wikimedia Commons : Concilio Trento Museo Buonconsiglio) | CC BY-SA 3.0 | muniverssocial.ca (fiche 07) |
 
+## Cahier de l'élève et dossier documentaire (`medias/dossier/`)
+
+| Fichier | Œuvre, auteur | Licence | Provenance |
+|---|---|---|---|
+| `dossier/ecole-athenes.jpg` | Raphaël, L'École d'Athènes, vers 1509-1511, Vatican | domaine public | Wikimedia Commons : Raphael School of Athens.jpg |
+| `dossier/bible-luther-1534.jpg` | Bible de Luther, Wittenberg, 1534 (photo : Torsten Schleese) | domaine public | Wikimedia Commons : Lutherbibel.jpg |
+| `dossier/carte-imprimerie.png` | NordNordWest, d'après l'Incunabula Short Title Catalogue | CC BY-SA 3.0 DE | Wikimedia Commons : Printing towns incunabula.svg |
+| `dossier/maitre-ecole-holbein.jpg` | Hans Holbein le Jeune, enseigne d'un maître d'école, 1516, Kunstmuseum Basel | domaine public | Wikimedia Commons : Leitsätze eines Schulmeisters, Szene- Unterricht für Erwachsene (1516) - Hans Holbein d. J. (Kunstmuseum Basel).jpg |
+| `dossier/homme-vitruve.jpg` | Léonard de Vinci, L'Homme de Vitruve, vers 1490, Gallerie dell'Accademia, Venise (photo : Luc Viatour) | domaine public | Wikimedia Commons : Da Vinci Vitruve Luc Viatour.jpg |
+
 Les images sous licence CC BY-SA restent sous cette licence ; les autres sont dans le domaine public ou sous CC0.

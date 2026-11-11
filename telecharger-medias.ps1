@@ -43,5 +43,13 @@ Recuperer "valla-herodote.jpg" "https://upload.wikimedia.org/wikipedia/commons/t
 Recuperer "inquisition.jpg" "https://muniverssocial.ca/medias/07-vision-de-lhomme/inquisition.jpg"
 Recuperer "concile-trente.jpg" "https://muniverssocial.ca/medias/07-vision-de-lhomme/concile-trente.jpg"
 
+# Images du cahier de l'eleve et du dossier documentaire (hors jeu)
+New-Item -ItemType Directory -Force -Path "medias/dossier" | Out-Null
+Recuperer "dossier/ecole-athenes.jpg" "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Raphael_School_of_Athens.jpg/1280px-Raphael_School_of_Athens.jpg"
+Recuperer "dossier/bible-luther-1534.jpg" "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Lutherbibel.jpg/960px-Lutherbibel.jpg"
+Recuperer "dossier/carte-imprimerie.png" "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Printing_towns_incunabula.svg/960px-Printing_towns_incunabula.svg.png"
+Recuperer "dossier/maitre-ecole-holbein.jpg" "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Leits%C3%A4tze_eines_Schulmeisters%2C_Szene-_Unterricht_f%C3%BCr_Erwachsene_%281516%29_-_Hans_Holbein_d._J._%28Kunstmuseum_Basel%29.jpg/960px-Leits%C3%A4tze_eines_Schulmeisters%2C_Szene-_Unterricht_f%C3%BCr_Erwachsene_%281516%29_-_Hans_Holbein_d._J._%28Kunstmuseum_Basel%29.jpg"
+Recuperer "dossier/homme-vitruve.jpg" "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Da_Vinci_Vitruve_Luc_Viatour.jpg/500px-Da_Vinci_Vitruve_Luc_Viatour.jpg"
+
 Write-Host ""
 Write-Host ("Termine : " + $n + " nouvelle(s) image(s) dans medias/. Lance maintenant : npm test")
