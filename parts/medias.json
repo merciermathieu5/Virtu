@@ -1,0 +1,412 @@
+[
+ {
+  "cle": "contrat",
+  "k": "Peinture",
+  "l": "Le Baptême du Christ, peint vers 1475 dans l'atelier d'Andrea del Verrocchio, à Florence : l'ange de gauche est l'oeuvre de son jeune apprenti, Léonard de Vinci. Galerie des Offices",
+  "c": "Google Art Project, Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "bapteme-verrocchio.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Verrocchio%2C_Leonardo_da_Vinci_-_Battesimo_di_Cristo_-_Google_Art_Project.jpg/960px-Verrocchio%2C_Leonardo_da_Vinci_-_Battesimo_di_Cristo_-_Google_Art_Project.jpg",
+    "commons": "Verrocchio, Leonardo da Vinci - Battesimo di Cristo - Google Art Project.jpg",
+    "auteur": "Andrea del Verrocchio et Léonard de Vinci (photo : Google Art Project)",
+    "licence": "domaine public"
+   }
+  ],
+  "f": "bapteme-verrocchio.jpg"
+ },
+ {
+  "cle": "fuite",
+  "k": "Fresque",
+  "l": "La Remise des clés à saint Pierre, fresque peinte par le Pérugin en 1481-1482 dans la chapelle Sixtine, à Rome",
+  "c": "Wikimedia Commons, domaine public",
+  "a": [
+   {
+    "id": "pf",
+    "ref": "le point de fuite",
+    "txt": "les lignes du pavé convergent toutes vers la porte du temple, au centre, posée sur la ligne d'horizon : c'est le point de fuite."
+   },
+   {
+    "ref": "les dalles et les personnages",
+    "txt": "ils rapetissent en s'éloignant : l'oeil croit voir de la profondeur sur une surface plane."
+   }
+  ],
+  "dl": [
+   {
+    "f": "perugin-cles.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Entrega_de_las_llaves_a_San_Pedro_%28Perugino%29.jpg/960px-Entrega_de_las_llaves_a_San_Pedro_%28Perugino%29.jpg",
+    "commons": "Entrega de las llaves a San Pedro (Perugino).jpg",
+    "auteur": "Le Pérugin",
+    "licence": "domaine public"
+   }
+  ],
+  "f": "perugin-cles.jpg"
+ },
+ {
+  "cle": "mecenat",
+  "k": "Portrait",
+  "l": "Laurent de Médicis, dit le Magnifique, le plus célèbre mécène de Florence, peint par Giorgio Vasari",
+  "c": "muniverssocial.ca, d'après Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "laurent-magnifique.jpg",
+    "url": "https://muniverssocial.ca/medias/07-vision-de-lhomme/laurent-magnifique.jpg",
+    "commons": null,
+    "auteur": "Giorgio Vasari (Wikimedia Commons : Vasari-Lorenzo)",
+    "licence": "domaine public",
+    "via": "muniverssocial.ca, fiche 07"
+   }
+  ],
+  "f": "laurent-magnifique.jpg"
+ },
+ {
+  "cle": "duomo",
+  "k": "Sculptures",
+  "l": "À gauche, le panneau de Ghiberti, le vainqueur ; à droite, celui de Brunelleschi : les deux reliefs de bronze présentés au concours de 1401 pour les portes du baptistère de Florence. Musée du Bargello",
+  "c": "Francesco Bini, Wikimedia Commons, CC BY-SA 4.0",
+  "a": [
+   {
+    "ref": "les deux panneaux",
+    "txt": "en 1401, Florence met au concours les portes de bronze de son baptistère : chaque candidat doit sculpter le même sujet, le sacrifice d'Isaac, dans le même cadre."
+   },
+   {
+    "id": "laurier",
+    "ref": "le vainqueur",
+    "txt": "le jury choisit Ghiberti, qui travaillera plus de vingt ans à ces portes : dans les cités italiennes rivales, chaque concours attire les meilleurs artistes, et c'est cette rivalité qui fait fleurir les arts."
+   }
+  ],
+  "dl": [
+   {
+    "f": "concours-ghiberti.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Lorenzo_ghiberti%2C_sacrificio_di_isacco%2C_1401%2C_01.jpg/500px-Lorenzo_ghiberti%2C_sacrificio_di_isacco%2C_1401%2C_01.jpg",
+    "commons": "Lorenzo ghiberti, sacrificio di isacco, 1401, 01.jpg",
+    "auteur": "Francesco Bini (Sailko)",
+    "licence": "CC BY-SA 4.0"
+   },
+   {
+    "f": "concours-brunelleschi.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Filippo_brunelleschi%2C_sacrificio_di_isacco%2C_1401%2C_01.jpg/500px-Filippo_brunelleschi%2C_sacrificio_di_isacco%2C_1401%2C_01.jpg",
+    "commons": "Filippo brunelleschi, sacrificio di isacco, 1401, 01.jpg",
+    "auteur": "Francesco Bini (Sailko)",
+    "licence": "CC BY-SA 4.0"
+   }
+  ],
+  "f": [
+   "concours-ghiberti.jpg",
+   "concours-brunelleschi.jpg"
+  ]
+ },
+ {
+  "cle": "officina",
+  "k": "Gravure et livre",
+  "l": "À gauche, un atelier d'imprimerie gravé par Jost Amman en 1568 : au fond, on compose les pages ; devant, on les imprime. À droite, le Virgile de poche imprimé par Alde Manuce à Venise en 1501, premier livre en italique",
+  "c": "Jost Amman, domaine public ; British Library, CC0 ; Wikimedia Commons",
+  "dl": [
+   {
+    "f": "imprimerie-amman.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Buchdrucker-1568.png/500px-Buchdrucker-1568.png",
+    "commons": "Buchdrucker-1568.png",
+    "auteur": "Jost Amman",
+    "licence": "domaine public"
+   },
+   {
+    "f": "virgile-alde-1501.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Page_from_the_edition_of_Virgil_printed_by_Aldus_Manutius_in_1501.jpg/500px-Page_from_the_edition_of_Virgil_printed_by_Aldus_Manutius_in_1501.jpg",
+    "commons": "Page from the edition of Virgil printed by Aldus Manutius in 1501.jpg",
+    "auteur": "Alde Manuce, imprimeur (photo : British Library)",
+    "licence": "CC0"
+   }
+  ],
+  "f": [
+   "imprimerie-amman.png",
+   "virgile-alde-1501.jpg"
+  ]
+ },
+ {
+  "cle": "outremer",
+  "k": "Pierre et peinture",
+  "l": "À gauche, un bloc de lapis-lazuli d'Afghanistan ; à droite, Bacchus et Ariane, peint à Venise par Titien vers 1520-1523. National Gallery de Londres",
+  "c": "Hannes Grobe, CC BY-SA 2.5 ; Titien, domaine public ; Wikimedia Commons",
+  "a": [
+   {
+    "ref": "la pierre bleue",
+    "txt": "le lapis-lazuli, extrait dans les montagnes d'Afghanistan, arrive par bateau jusqu'aux quais de Venise, carrefour du commerce."
+   },
+   {
+    "ref": "le ciel de Titien",
+    "txt": "broyé et purifié, le lapis donne l'outremer, le bleu le plus profond de la peinture, qu'on payait à prix d'or : le Vénitien Titien en peint le ciel intense de son tableau."
+   }
+  ],
+  "dl": [
+   {
+    "f": "lapis-lazuli.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Lapis-lazuli_hg.jpg/500px-Lapis-lazuli_hg.jpg",
+    "commons": "Lapis-lazuli hg.jpg",
+    "auteur": "Hannes Grobe",
+    "licence": "CC BY-SA 2.5"
+   },
+   {
+    "f": "titien-bacchus-ariane.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Titian_-_Bacchus_and_Ariadne_-_Google_Art_Project.jpg/500px-Titian_-_Bacchus_and_Ariadne_-_Google_Art_Project.jpg",
+    "commons": "Titian - Bacchus and Ariadne - Google Art Project.jpg",
+    "auteur": "Titien (photo : Google Art Project)",
+    "licence": "domaine public"
+   }
+  ],
+  "f": [
+   "lapis-lazuli.jpg",
+   "titien-bacchus-ariane.jpg"
+  ]
+ },
+ {
+  "cle": "erasme",
+  "k": "Portrait",
+  "l": "Érasme de Rotterdam, le plus célèbre des humanistes, peint par Hans Holbein le Jeune",
+  "c": "muniverssocial.ca, d'après Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "erasme.jpg",
+    "url": "https://muniverssocial.ca/medias/07-vision-de-lhomme/erasme.jpg",
+    "commons": null,
+    "auteur": "Hans Holbein le Jeune (Wikimedia Commons : Holbein-erasmus)",
+    "licence": "domaine public",
+    "via": "muniverssocial.ca, fiche 07"
+   }
+  ],
+  "f": "erasme.jpg"
+ },
+ {
+  "cle": "folie",
+  "k": "Dessin",
+  "l": "La Folie descend de sa chaire après son discours : dessin de Hans Holbein le Jeune dans la marge d'un exemplaire de l'Éloge de la folie d'Érasme imprimé en 1515. Kunstmuseum de Bâle",
+  "c": "Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "holbein-folie.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Folly_Steps_Down_from_the_Pulpit%2C_marginal_drawing_by_Hans_Holbein_the_Younger.jpg/960px-Folly_Steps_Down_from_the_Pulpit%2C_marginal_drawing_by_Hans_Holbein_the_Younger.jpg",
+    "commons": "Folly Steps Down from the Pulpit, marginal drawing by Hans Holbein the Younger.jpg",
+    "auteur": "Hans Holbein le Jeune",
+    "licence": "domaine public"
+   }
+  ],
+  "f": "holbein-folie.jpg"
+ },
+ {
+  "cle": "indulg",
+  "k": "Document d'archive",
+  "l": "Une vraie lettre d'indulgence, imprimée puis remplie le 3 mars 1517 au nom de l'archevêque de Mayence pour une veuve et ses deux fils : l'argent versé devait servir à bâtir Saint-Pierre de Rome",
+  "c": "Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "lettre-indulgence-1517.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Letter_of_indulgence.png/960px-Letter_of_indulgence.png",
+    "commons": "Letter of indulgence.png",
+    "auteur": "Archevêché de Mayence (reproduction publiée par Johann Michael Reu)",
+    "licence": "domaine public"
+   }
+  ],
+  "f": "lettre-indulgence-1517.png"
+ },
+ {
+  "cle": "theses95",
+  "k": "Document d'archive",
+  "l": "Les 95 thèses de Martin Luther, imprimées en 1517 sous le titre latin Disputatio pro declaratione virtutis indulgentiarum",
+  "c": "Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "theses-1517.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Luther_95_Thesen.png/500px-Luther_95_Thesen.png",
+    "commons": "Luther 95 Thesen.png",
+    "auteur": "Martin Luther",
+    "licence": "domaine public"
+   }
+  ],
+  "f": "theses-1517.png"
+ },
+ {
+  "cle": "chaire",
+  "k": "Imprimé de 1519",
+  "l": "Page de titre de l'imprimé qui annonce, en 1519, la disputatio de Leipzig entre Johann Eck et Martin Luther",
+  "c": "Martin Geisler, Wikimedia Commons, CC BY-SA 3.0",
+  "a": [
+   {
+    "ref": "la page de titre",
+    "txt": "elle annonce la dispute de l'université de Leipzig : deux savants s'y affronteront en public, argument contre argument, texte contre texte. C'est la disputatio, la joute réglée des universités."
+   },
+   {
+    "ref": "les noms des adversaires",
+    "txt": "Johann Eck contre Martin Luther : on n'y gagne ni par la force ni par le cri, mais par la raison et les preuves, devant étudiants, bourgeois et clercs."
+   }
+  ],
+  "dl": [
+   {
+    "f": "disputatio-leipzig-1519.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Disputatio_1519.jpg/500px-Disputatio_1519.jpg",
+    "commons": "Disputatio 1519.jpg",
+    "auteur": "Johann Eck et Martin Luther (photo : Martin Geisler)",
+    "licence": "CC BY-SA 3.0"
+   }
+  ],
+  "f": "disputatio-leipzig-1519.jpg"
+ },
+ {
+  "cle": "edit",
+  "k": "Gravure de 1556",
+  "l": "Luther devant l'empereur Charles Quint à la diète de Worms, en 1521, ses livres posés sur la table : c'est au terme de cette assemblée que l'édit de Worms condamne ses écrits. Gravure sur bois coloriée de 1556",
+  "c": "Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "luther-worms.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Luther-in-Worms-auf-Rt.jpg/500px-Luther-in-Worms-auf-Rt.jpg",
+    "commons": "Luther-in-Worms-auf-Rt.jpg",
+    "auteur": "Graveur inconnu, 1556",
+    "licence": "domaine public"
+   }
+  ],
+  "f": "luther-worms.jpg"
+ },
+ {
+  "cle": "chronique",
+  "k": "Gravure",
+  "l": "Le siège de Rome en 1527 : le connétable de Bourbon, chef des troupes impériales, tombe de son échelle, frappé à mort ; au fond, le Tibre et le château Saint-Ange. Gravure de Dirck Coornhert d'après Maarten van Heemskerck, 1555-1556",
+  "c": "Rijksmuseum, Wikimedia Commons, CC0",
+  "dl": [
+   {
+    "f": "siege-rome-1527.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bestorming_van_Rome%2C_1527_Overwinningen_van_Karel_V_%28serietitel%29_Divi_Caroli._V._imp._opt._max._victoriae%2C_ex_multis_praecipuae_%28serietitel%29%2C_RP-P-BI-6604.jpg/960px-Bestorming_van_Rome%2C_1527_Overwinningen_van_Karel_V_%28serietitel%29_Divi_Caroli._V._imp._opt._max._victoriae%2C_ex_multis_praecipuae_%28serietitel%29%2C_RP-P-BI-6604.jpg",
+    "commons": "Bestorming van Rome, 1527 Overwinningen van Karel V (serietitel) Divi Caroli. V. imp. opt. max. victoriae, ex multis praecipuae (serietitel), RP-P-BI-6604.jpg",
+    "auteur": "Dirck Volckertsz. Coornhert, d'après Maarten van Heemskerck (Rijksmuseum)",
+    "licence": "CC0"
+   }
+  ],
+  "f": "siege-rome-1527.jpg"
+ },
+ {
+  "cle": "chantier",
+  "k": "Dessin",
+  "l": "Le chantier de la nouvelle basilique Saint-Pierre, dessiné sur place par Maarten van Heemskerck lors de son séjour à Rome, entre 1532 et 1536 : les grands arcs de l'église s'élèvent encore à ciel ouvert",
+  "c": "Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "chantier-saint-pierre.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Heemskerck_Construction_of_St_Peters.jpg/960px-Heemskerck_Construction_of_St_Peters.jpg",
+    "commons": "Heemskerck Construction of St Peters.jpg",
+    "auteur": "Maarten van Heemskerck",
+    "licence": "domaine public"
+   }
+  ],
+  "f": "chantier-saint-pierre.jpg"
+ },
+ {
+  "cle": "cosmos",
+  "k": "Enluminure et gravure",
+  "l": "À gauche, l'Univers géocentrique enluminé par le cosmographe Bartolomeu Velho en 1568 ; à droite, le schéma héliocentrique imprimé par Copernic dans son livre De revolutionibus, en 1543",
+  "c": "Wikimedia Commons, domaine public",
+  "a": [
+   {
+    "ref": "à gauche",
+    "txt": "le géocentrisme, enseigné depuis l'Antiquité : la Terre immobile au centre, la Lune, le Soleil et les planètes tournant autour d'elle sur leurs sphères."
+   },
+   {
+    "ref": "à droite",
+    "txt": "l'héliocentrisme proposé par Copernic : le Soleil au centre, la Terre tournant autour de lui. En 1543, ce n'est encore qu'une hypothèse discutée entre savants."
+   }
+  ],
+  "dl": [
+   {
+    "f": "velho-geocentrisme.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Bartolomeu_Velho_1568.jpg/500px-Bartolomeu_Velho_1568.jpg",
+    "commons": "Bartolomeu Velho 1568.jpg",
+    "auteur": "Bartolomeu Velho",
+    "licence": "domaine public"
+   },
+   {
+    "f": "copernic-heliocentrisme.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Copernican_heliocentrism_diagram-2.jpg/500px-Copernican_heliocentrism_diagram-2.jpg",
+    "commons": "Copernican heliocentrism diagram-2.jpg",
+    "auteur": "Nicolas Copernic",
+    "licence": "domaine public"
+   }
+  ],
+  "f": [
+   "velho-geocentrisme.jpg",
+   "copernic-heliocentrisme.jpg"
+  ]
+ },
+ {
+  "cle": "donation",
+  "k": "Fresque",
+  "l": "La Donation de Constantin, peinte vers 1246 dans la chapelle Saint-Sylvestre de l'église des Santi Quattro Coronati, à Rome : l'empereur remet au pape la tiare, symbole du pouvoir",
+  "c": "Web Gallery of Art, Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "donation-constantin.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Unknown_painter_-_The_Donation_of_Constantine_-_WGA23883.jpg/960px-Unknown_painter_-_The_Donation_of_Constantine_-_WGA23883.jpg",
+    "commons": "Unknown painter - The Donation of Constantine - WGA23883.jpg",
+    "auteur": "Peintre romain anonyme, vers 1246",
+    "licence": "domaine public"
+   }
+  ],
+  "f": "donation-constantin.jpg"
+ },
+ {
+  "cle": "philologie",
+  "k": "Manuscrit",
+  "l": "Un manuscrit grec des Histoires d'Hérodote annoté dans les marges par l'humaniste Lorenzo Valla. Bibliothèque vaticane",
+  "c": "Wikimedia Commons, domaine public",
+  "a": [
+   {
+    "ref": "le texte grec",
+    "txt": "Lorenzo Valla lit les auteurs anciens dans leur langue, plume en main : il compare les mots, corrige, note dans la marge. C'est le travail du philologue."
+   },
+   {
+    "ref": "les notes en marge",
+    "txt": "traquer un mot, une tournure, un titre qui n'existaient pas encore à l'époque prétendue : c'est ainsi que Valla démontra, en 1440, que la Donation de Constantin était un faux écrit des siècles plus tard."
+   }
+  ],
+  "dl": [
+   {
+    "f": "valla-herodote.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Herodotus%2C_Histories%2C_with_marginalia_by_Lorenzo_Valla%2C_Vat._gr._122%2C_fol._41r_und_122r.jpg/960px-Herodotus%2C_Histories%2C_with_marginalia_by_Lorenzo_Valla%2C_Vat._gr._122%2C_fol._41r_und_122r.jpg",
+    "commons": "Herodotus, Histories, with marginalia by Lorenzo Valla, Vat. gr. 122, fol. 41r und 122r.jpg",
+    "auteur": "Hérodote, annotations de Lorenzo Valla (Bibliothèque vaticane)",
+    "licence": "domaine public"
+   }
+  ],
+  "f": "valla-herodote.jpg"
+ },
+ {
+  "cle": "saintoffice",
+  "k": "Peinture",
+  "l": "Un autodafé, la cérémonie où l'Inquisition prononce ses sentences, peint par Pedro Berruguete vers 1495 : les juges siègent sur une estrade, les condamnés attendent en contrebas. Musée du Prado",
+  "c": "muniverssocial.ca, d'après Wikimedia Commons, domaine public",
+  "dl": [
+   {
+    "f": "inquisition.jpg",
+    "url": "https://muniverssocial.ca/medias/07-vision-de-lhomme/inquisition.jpg",
+    "commons": null,
+    "auteur": "Pedro Berruguete, Saint Dominique présidant un autodafé, 1495 (Wikimedia Commons)",
+    "licence": "domaine public",
+    "via": "muniverssocial.ca, fiche 07"
+   }
+  ],
+  "f": "inquisition.jpg"
+ },
+ {
+  "cle": "trente",
+  "k": "Peinture",
+  "l": "Une séance du concile de Trente, tableau du 16e siècle conservé au château du Buonconsiglio, à Trente",
+  "c": "Laurom, Wikimedia Commons, CC BY-SA 3.0, via muniverssocial.ca",
+  "dl": [
+   {
+    "f": "concile-trente.jpg",
+    "url": "https://muniverssocial.ca/medias/07-vision-de-lhomme/concile-trente.jpg",
+    "commons": null,
+    "auteur": "Laurom (Wikimedia Commons : Concilio Trento Museo Buonconsiglio)",
+    "licence": "CC BY-SA 3.0",
+    "via": "muniverssocial.ca, fiche 07"
+   }
+  ],
+  "f": "concile-trente.jpg"
+ }
+]

@@ -311,6 +311,66 @@ css = """
 """
 html = rep(html, "</style>", css + "</style>", "CSS combat")
 
+# ---- 9. lisibilité : plancher de 12 px, même échelle que le moteur de Lugal ----
+ECHELLE = {8.5: 12, 9: 12, 9.5: 12, 10: 12, 10.5: 12.5, 11: 13, 11.5: 13, 12: 13.5, 12.5: 14,
+           13: 14, 13.5: 14.5, 14: 15, 14.5: 15.5, 15: 15.5, 15.5: 16, 16: 16.5, 16.5: 17,
+           17: 17.5, 17.5: 18}
+def grossir(m):
+    v = float(m.group(1))
+    n = ECHELLE.get(v, 12 if v < 12 else v)
+    return "font-size:%gpx" % n
+a, b = html.index("<style>"), html.index("</style>")
+html = html[:a] + re.sub(r"font-size:\s*([0-9.]+)px", grossir, html[a:b]) + html[b:]
+
+# ---- 10. le pupitre : interface repensée (une chose à la fois) ----
+import json
+html = rep(html, "</style>", part("pupitre.css").rstrip() + "\n</style>", "CSS pupitre")
+MEDIAS = json.loads(part("medias.json"))
+uxi = {m["cle"]: {k: m[k] for k in ("f", "l", "c", "k", "a") if m.get(k)} for m in MEDIAS}
+js = part("pupitre.js").replace("/*__UX_IMAGES__*/{}", json.dumps(uxi, ensure_ascii=False))
+html = rep(html, "\n</script>", "\n" + js.rstrip() + "\n</script>", "JS pupitre")
+
+# ---- 11. le dossier medias/ : script de téléchargement et crédits, tirés du même catalogue ----
+ps = ["# telecharger-medias.ps1",
+      "# A lancer dans PowerShell, a la racine du depot Virtu :",
+      "#   .\\telecharger-medias.ps1",
+      "# Depose dans medias/ les images documentaires manquantes (les fichiers deja",
+      "# presents sont conserves). Ensuite : git add medias ; git commit ; git push ;",
+      "# puis npm test.",
+      "# Fichier genere par build.py a partir de parts/medias.json : ne pas modifier a la main.",
+      '$ErrorActionPreference = "Stop"',
+      'New-Item -ItemType Directory -Force -Path "medias" | Out-Null',
+      '$ua = "Virtu-jeu-serieux/1.0 (https://github.com/merciermathieu5/Virtu)"',
+      "$n = 0", "",
+      "function Recuperer($fichier, $url) {",
+      '  $dest = "medias/" + $fichier',
+      '  if (Test-Path $dest) { Write-Host ($dest + " : deja present"); return }',
+      "  Invoke-WebRequest -Uri $url -OutFile $dest -UserAgent $ua",
+      '  Write-Host ($dest + " : telecharge")',
+      "  $script:n++",
+      "  Start-Sleep -Milliseconds 400",
+      "}", ""]
+for m in MEDIAS:
+    for d in m["dl"]:
+        ps.append(f'Recuperer "{d["f"]}" "{d["url"]}"')
+ps += ["", 'Write-Host ""',
+       'Write-Host ("Termine : " + $n + " nouvelle(s) image(s) dans medias/. Lance maintenant : npm test")', ""]
+io.open("telecharger-medias.ps1", "w", encoding="utf-8-sig", newline="\r\n").write("\n".join(ps))
+cr = ["# Crédits des images documentaires", "",
+      "Images affichées sous « La trace réelle » dans les sources du jeu. Ce fichier est généré par",
+      "`build.py` à partir de `parts/medias.json`. Les fichiers sont téléchargés par",
+      "`telecharger-medias.ps1`.", "",
+      "| Fichier | Source dans le jeu | Œuvre, auteur | Licence | Provenance |",
+      "|---|---|---|---|---|"]
+for m in MEDIAS:
+    for d in m["dl"]:
+        prov = ("Wikimedia Commons : " + d["commons"]) if d.get("commons") else ("muniverssocial.ca (fiche 07)")
+        cr.append(f'| `{d["f"]}` | {m["cle"]} | {d["auteur"]} | {d["licence"]} | {prov} |')
+cr += ["", "Les images sous licence CC BY-SA restent sous cette licence ; les autres sont dans le domaine public ou sous CC0.", ""]
+import os
+os.makedirs("medias", exist_ok=True)
+io.open("medias/CREDITS.md", "w", encoding="utf-8").write("\n".join(cr))
+
 io.open(OUT, "w", encoding="utf-8").write(html)
 if errors:
     print("ERREURS :")
